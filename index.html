@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <meta name="description" content="2026–2027 家庭財務共同規劃：可切換 2027 年內年底旅遊與 2027 年 3 月日本出遊方案，納入 8 月 21,000 元儲蓄險、家人欠款、保費和孩子教育費。">
+    <title>我們的家庭財務計畫｜雙方案比較 2026–2027</title>
+    <style>
+        :root { --ink:#20343a; --sub:#5b6d73; --green:#155f56; --deep:#163c3c; --line:#dce7e3; --paper:#f5f7f5; --white:#fff; --light:#edf6f1; --amber:#8a581f; --softamber:#fdf5e9; --negative:#a34b35; }
+        * { box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { margin:0; background:var(--paper); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif; line-height:1.65; -webkit-font-smoothing:antialiased; }
+        button,input { font:inherit; }
+        button { cursor:pointer; }
+        .wrap { width:min(1120px,calc(100% - 36px)); margin-inline:auto; }
+        header { padding:47px 0 39px; color:white; background:linear-gradient(115deg,#143938,#245750); }
+        .eyebrow { margin:0 0 9px; letter-spacing:.14em; font-weight:800; font-size:11px; color:#b5d7cf; }
+        h1 { margin:0; font-size:clamp(29px,4.4vw,49px); line-height:1.24; letter-spacing:-.035em; }
+        .intro { max-width:790px; margin:16px 0 22px; font-size:15px; color:#d9eae5; }
+        .header-row { display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+        .header-meta { font-size:12px; border:1px solid #83a8a0; border-radius:40px; padding:5px 12px; }
+        .print { border:1px solid #99b8b1; color:white; background:transparent; padding:7px 15px; border-radius:9px; font-size:12px; }
+        .print:hover { background:#ffffff18; }
+        nav { position:sticky; top:0; background:#fff; border-bottom:1px solid var(--line); z-index:10; }
+        nav .wrap { display:flex; gap:22px; align-items:center; overflow-x:auto; scrollbar-width:none; white-space:nowrap; }
+        nav a { color:var(--sub); text-decoration:none; padding:13px 0; font-size:12px; font-weight:700; }
+        nav a:hover { color:var(--green); }
+        main { padding:27px 0 65px; }
+        section { margin:31px 0 0; scroll-margin-top:72px; }
+        h2 { margin:0; font-size:clamp(22px,3vw,29px); letter-spacing:-.03em; }
+        h3 { margin:0 0 11px; font-size:17px; }
+        p { margin:8px 0; }
+        .subtitle { margin:5px 0 16px; color:var(--sub); font-size:13px; }
+        .card { background:white; border:1px solid var(--line); border-radius:14px; padding:21px; }
+        .card+.card { margin-top:13px; }
+        .cols { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+        .metrics { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:11px; }
+        .metric { border:1px solid var(--line); background:white; border-radius:12px; padding:18px 16px; min-height:124px; }
+        .metric .tag { color:var(--sub); font-size:12px; }
+        .metric .value { font-size:clamp(23px,2.6vw,31px); font-weight:850; letter-spacing:-.04em; font-variant-numeric:tabular-nums; line-height:1.3; margin:10px 0 5px; overflow-wrap:anywhere; }
+        .metric .hint { color:var(--sub); font-size:11px; }
+        .green { color:var(--green); }
+        .amber { color:var(--amber); }
+        .red { color:var(--negative); }
+        .choice { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
+        .tab { display:flex; flex-direction:column; align-items:flex-start; gap:4px; min-height:164px; border:2px solid #cbdcd6; background:white; border-radius:15px; padding:19px 20px; text-align:left; color:var(--ink); transition:border-color .15s,background .15s,box-shadow .15s; }
+        .tab:hover { border-color:#6b9b8d; background:#f8fcfa; }
+        .tab .plan-name { font-size:15px; font-weight:800; color:var(--ink); }
+        .tab .plan-date { display:block; font-size:clamp(25px,3vw,34px); line-height:1.32; letter-spacing:-.025em; color:var(--green); font-variant-numeric:tabular-nums; }
+        .tab .plan-desc { display:block; font-size:12px; line-height:1.65; color:var(--sub); }
+        .tab[aria-selected="true"] { border-color:var(--green); background:#f2fbf7; box-shadow:0 0 0 4px #77a99a; }
+        .tab:focus-visible,input:focus-visible { outline:3px solid #74ae9c; outline-offset:3px; }
+        .field-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:13px; }
+        label { font-size:13px; font-weight:700; display:block; }
+        label small { display:block; margin-top:3px; color:var(--sub); font-size:11px; font-weight:400; min-height:32px; }
+        input[type=number] { width:100%; border:1px solid #b9cec5; border-radius:9px; padding:10px 11px; margin-top:8px; color:var(--ink); background:white; font-variant-numeric:tabular-nums; }
+        .note { font-size:12px; line-height:1.8; color:var(--sub); margin:11px 0 0; }
+        .callout { border-left:3px solid #b88641; border-radius:0 8px 8px 0; background:var(--softamber); padding:12px 15px; margin-top:14px; font-size:13px; }
+        .callout.good { border-color:var(--green); background:var(--light); }
+        .scenario { margin-top:22px; }
+        .scenario[hidden] { display:none!important; }
+        .rule { height:1px; background:var(--line); margin:14px 0; }
+        .pair { display:flex; justify-content:space-between; gap:12px; align-items:baseline; font-size:13px; margin:9px 0; }
+        .pair strong { font-variant-numeric:tabular-nums; white-space:nowrap; }
+        .pair span { color:var(--sub); }
+        .highlight-row { padding-top:10px; border-top:1px solid var(--line); font-weight:800; }
+        .table-scroll { border:1px solid var(--line); border-radius:10px; overflow-x:auto; }
+        table { border-collapse:collapse; min-width:100%; width:100%; text-align:right; font-size:12px; font-variant-numeric:tabular-nums; }
+        th,td { padding:10px 11px; border-bottom:1px solid var(--line); white-space:nowrap; }
+        th { background:#f0f5f2; color:var(--sub); font-weight:800; }
+        th:first-child,td:first-child { position:sticky; left:0; z-index:1; min-width:144px; text-align:left; font-weight:700; background:white; }
+        th:first-child { z-index:2; background:#f0f5f2; }
+        tr:last-child td { border-bottom:0; }
+        tr.total td { background:var(--light); color:#135447; font-weight:850; }
+        tr.total td:first-child { background:var(--light); }
+        tr.focus td { background:#fff8ec; }
+        tr.focus td:first-child { background:#fff8ec; }
+        tr.negative td { color:var(--negative); }
+        .small-table th:first-child,.small-table td:first-child { min-width:100px; }
+        .subsection-heading { margin:0 0 4px; font-size:16px; font-weight:850; letter-spacing:-.015em; }
+        .subsection-hint { margin:0 0 14px; color:var(--sub); font-size:12px; }
+        .spouse-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+        .spouse-month { border:1px solid var(--line); border-radius:12px; background:#fbfcfb; padding:16px; }
+        .spouse-month h4 { margin:0 0 12px; font-size:15px; }
+        .spouse-month .pair { font-size:12px; margin:5px 0; }
+        .spouse-month .pair strong { font-size:12px; }
+        .spouse-month .monthly-effect { font-size:12px; font-weight:800; padding:8px 10px; margin:12px 0 10px; border-radius:8px; background:#edf6f1; color:var(--green); }
+        .spouse-month .monthly-effect.increase { background:var(--softamber); color:var(--amber); }
+        .spouse-month .due { padding:7px 0; border-block:1px solid var(--line); margin:9px 0; }
+        .spouse-month .ending { margin-top:8px; padding-top:9px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:8px; align-items:baseline; justify-content:space-between; font-size:12px; font-weight:800; }
+        .spouse-month .ending strong { font-size:25px; color:var(--green); font-variant-numeric:tabular-nums; line-height:1.3; }
+        .spouse-formula { margin-top:13px; font-size:12px; color:var(--sub); line-height:1.7; }
+        .summaryline { display:flex; flex-wrap:wrap; gap:7px; margin:17px 0 0; }
+        .chip { border:1px solid #d1e2dc; border-radius:50px; background:#fafdfb; color:#37665c; font-size:11px; padding:3px 9px; }
+        .checks { display:grid; grid-template-columns:repeat(3,1fr); gap:9px; }
+        .check { padding:14px; border:1px solid var(--line); border-radius:10px; background:white; }
+        .check strong { display:block; font-size:16px; margin-top:6px; }
+        .check small { display:block; color:var(--sub); font-size:11px; }
+        footer { color:var(--sub); border-top:1px solid var(--line); padding:22px 0 38px; font-size:11px; }
+        @media(max-width:850px) { .metrics { grid-template-columns:repeat(2,1fr); } .cols { grid-template-columns:1fr; } .field-grid { grid-template-columns:1fr 1fr; } .checks { grid-template-columns:1fr; } .spouse-grid { grid-template-columns:1fr; } }
+        @media(max-width:560px) { .wrap { width:calc(100% - 26px); } header { padding:34px 0; } .metric { padding:14px; min-height:115px; } .card { padding:15px; } .choice { grid-template-columns:1fr; } .field-grid { grid-template-columns:1fr; } label small { min-height:0; } th,td { padding:9px; } }
+        @media print { nav,.print,.choice,.field-grid { display:none!important; } header { color:var(--ink); background:white; border-bottom:2px solid var(--deep); padding:17px 0; } .intro { color:var(--sub); } body { background:white; font-size:10px; } main { padding-top:12px; } section { margin-top:18px; break-inside:avoid; } .card,.metric,.check { break-inside:avoid; } .table-scroll { overflow:visible; } th,td { padding:5px 6px; font-size:9px; } .wrap { width:100%; } .metric { min-height:0; } .scenario[hidden] { display:none!important; } .scenario { display:block; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <p class="eyebrow">OUR FAMILY PLAN / 2026–2027</p>
+            <h1>我們的家庭財務計畫</h1>
+            <p class="intro">2027 年 1～3 月個人生活費維持 7,000 元，4 月起提高為 10,000 元，老公與妹妹在 2 月還清，女兒借款改成分期；完整納入保險、升小一學費與同額日本旅費，可切換年底或 3 月出遊方案。</p>
+            <div class="header-row"><span class="header-meta">規劃期間：2026／10～2027／12｜金額均為新台幣</span><button class="print" type="button" onclick="window.print()">列印目前方案／另存 PDF</button></div>
+        </div>
+    </header>
+    <nav aria-label="頁面導覽"><div class="wrap"><a href="#switch">切換方案</a><a href="#inputs">試算條件</a><a href="#common">2026 年底</a><a href="#summary">計畫總覽</a><a href="#repay">欠款進度</a><a href="#monthly">每月花費</a><a href="#education">教育及保險</a><a href="#notes">假設與提醒</a></div></nav>
+    <main class="wrap">
+        <section id="switch">
+            <h2>先選擇旅遊時程</h2>
+            <p class="subtitle">單檔網頁、離線運作；切換時所有支出表和還款進度會同步更新。</p>
+            <div class="choice" role="tablist" aria-label="選擇財務規劃方案">
+                <button class="tab" type="button" role="tab" id="tab-original" aria-controls="panel-original" aria-selected="true" tabindex="0" data-plan="original">
+                    <span class="plan-name">方案 A｜女兒 7 月還清、年底出遊</span>
+                    <strong class="plan-date" id="switchOriginalDate">2027 年 12 月（目標）</strong>
+                    <span class="plan-desc" id="switchOriginalNote">共用旅費 40,000 元｜緊急金目標 30,000 元</span>
+                </button>
+                <button class="tab" type="button" role="tab" id="tab-march" aria-controls="panel-march" aria-selected="false" tabindex="-1" data-plan="march">
+                    <span class="plan-name">方案 B｜3 月出遊、女兒分期至年底</span>
+                    <strong class="plan-date">2027 年 3 月</strong>
+                    <span class="plan-desc" id="switchMarchNote">共用旅費 40,000 元｜緊急金目標 30,000 元；老公與妹妹 2 月還清。</span>
+                </button>
+            </div>
+            <div class="callout"><strong>兩版都已納入：</strong>2027 年 1～3 月個人生活費每月 <strong>7,000 元</strong>，4 月起提高至每月 <strong>10,000 元</strong>；老公和妹妹 2 月還清。2027 年 8 月儲蓄險扣款 <strong>21,000 元</strong>（獨立於年度一般保費 63,868 元及每月 5,323 元保費預留之外）。此筆視為 2027 年 8 月一次性扣款，先從當月可用現金支付；不把保單價值當作可自由動用的現金。</div>
+        </section>
+        <section id="inputs">
+            <h2>一起調整試算條件</h2>
+            <p class="subtitle">預設值只是情境，不代表實際剩餘日幣、學費或機票報價；數字不會送到網路。</p>
+            <div class="card">
+                <div class="field-grid">
+                    <label for="school">9 月學雜費：你負擔的金額<small>預設 5,000 元僅供試算，請等學校通知後更新。</small><input id="school" type="number" min="0" max="100000" step="100" inputmode="numeric" value="5000"></label>
+                    <label for="yen">沖繩剩餘日幣（台幣等值，J）<small>預設 7,000 元為示範；妹妹 11,000 元借款仍須照還。</small><input id="yen" type="number" min="0" max="10000" step="100" inputmode="numeric" value="7000"></label>
+                    <label for="trip">日本旅遊總預算（A、B 共用）<small>兩版同額，含機票、住宿及當地花費。</small><input id="trip" type="number" min="0" max="250000" step="1000" inputmode="numeric" value="40000"></label>
+                    <label for="emergency">緊急預備金目標（A、B 共用）<small>預設 30,000 元，可依夫妻討論自行調整；從月底現金分配，不重複扣款。</small><input id="emergency" type="number" min="0" max="200000" step="1000" inputmode="numeric" value="30000"></label>
+                </div>
+                <p class="note" id="affordableHint" aria-live="polite">如果希望年底同時還清借款、保留緊急金，預設共同旅費上限約 40,583 元（仍需核對每月周轉）。</p>
+                <p class="note">A、B 共用旅遊總預算、剩餘日幣及緊急預備金目標。緊急預備金是從現有現金保留，並非額外支出；台幣旅費＝總預算－實際可使用的日幣等值。若日幣只能用於部分現地花費，請填入旅程實際可抵用金額。家用、幼兒園費與舊債分開列帳。兩版均假設 2027 年 2 月年終實領 47,000 元、長輩紅包支出 12,000 元。<strong>2027 年 1～3 月生活費每月 7,000 元，4 月起提高至 10,000 元</strong>；2026 年 11、12 月維持原版的 7,000 元，因為直接提高會使原定年底現金變成負 3,431 元，需要另外協調 2026 年給老公的款項。</p>
+            </div>
+        </section>
+        <section id="common">
+            <h2>2026 年底｜兩個方案共同起點</h2>
+            <p class="subtitle">這裡分開看「實際付出去的錢」與「欠老公的帳」。10 月信用卡已包含生活費，不再重複扣款。</p>
+            <div class="card">
+                <h3 class="subsection-heading">① 10～12 月｜實際現金收支</h3>
+                <p class="subsection-hint">給老公的款項已包含當月家用與幼兒園費；這張表只扣除一次實際付款。</p>
+                <div class="table-scroll small-table"><table><thead><tr><th>項目</th><th>10 月</th><th>11 月</th><th>12 月</th></tr></thead><tbody>
+                    <tr><td>月初現金</td><td>6,000</td><td>22,582</td><td>20,723</td></tr>
+                    <tr><td>月薪</td><td>47,000</td><td>47,000</td><td>47,000</td></tr>
+                    <tr class="focus"><td>實際付給老公</td><td>18,000</td><td>18,000</td><td>10,000</td></tr>
+                    <tr><td>個人生活費</td><td>已含於卡費</td><td>7,000</td><td>7,000</td></tr>
+                    <tr><td>信用卡</td><td>8,800</td><td>—</td><td>—</td></tr>
+                    <tr><td>家庭帳單</td><td>3,618</td><td>4,859</td><td>3,286</td></tr>
+                    <tr><td>保險實繳</td><td>—</td><td>19,000</td><td>44,868</td></tr>
+                    <tr class="total"><td>月底可用現金</td><td>22,582</td><td>20,723</td><td>2,569</td></tr>
+                </tbody></table></div>
+                <p class="note">家庭帳單包含水、電、瓦斯及網路費；管理費每兩個月 3,500 元，<strong>2026 年僅 11 月含管理費</strong>（已計入 4,859 元），10 月與 12 月均不含。2027 年則估列於 1、3、5、7、9、11 月。</p>
+            </div>
+            <div class="card">
+                <h3 class="subsection-heading">② 給老公的款項｜欠款怎麼變化？</h3>
+                <p class="subsection-hint">以下是上方付款的帳務拆解，<strong>只解釋欠款，不是第二次扣款</strong>。每月原應付：家用 10,000＋幼兒園費 5,300＝<strong>15,300 元</strong>。</p>
+                <div class="spouse-grid">
+                    <div class="spouse-month">
+                        <h4>10 月</h4>
+                        <div class="pair"><span>月初欠老公</span><strong>26,000</strong></div>
+                        <div class="pair due"><span>當月應付（家用＋幼兒園）</span><strong>15,300</strong></div>
+                        <div class="pair"><span>實際已付（上方已扣）</span><strong>18,000</strong></div>
+                        <div class="monthly-effect">多付 2,700 → 舊欠款減少 2,700</div>
+                        <div class="ending"><span>月底還欠老公</span><strong>23,300</strong></div>
+                    </div>
+                    <div class="spouse-month">
+                        <h4>11 月</h4>
+                        <div class="pair"><span>月初欠老公</span><strong>23,300</strong></div>
+                        <div class="pair due"><span>當月應付（家用＋幼兒園）</span><strong>15,300</strong></div>
+                        <div class="pair"><span>實際已付（上方已扣）</span><strong>18,000</strong></div>
+                        <div class="monthly-effect">多付 2,700 → 舊欠款減少 2,700</div>
+                        <div class="ending"><span>月底還欠老公</span><strong>20,600</strong></div>
+                    </div>
+                    <div class="spouse-month">
+                        <h4>12 月</h4>
+                        <div class="pair"><span>月初欠老公</span><strong>20,600</strong></div>
+                        <div class="pair due"><span>當月應付（家用＋幼兒園）</span><strong>15,300</strong></div>
+                        <div class="pair"><span>實際已付（上方已扣）</span><strong>10,000</strong></div>
+                        <div class="monthly-effect increase">少付 5,300 → 當月新增欠款 5,300</div>
+                        <div class="ending"><span>月底還欠老公</span><strong>25,900</strong></div>
+                    </div>
+                </div>
+                <p class="spouse-formula">計算方式：月初欠款＋當月應付 15,300－當月實際已付＝月底欠款。2026 年 12 月少付的 5,300 元有算進欠款。</p>
+                <div class="callout good"><strong>2026 年底家庭借款合計 86,900 元：</strong>老公 25,900＋女兒 50,000＋妹妹 11,000（其中 10,000 為代換日幣）。沖繩剩餘日幣不當作新增收入。</div>
+                <p class="note"><strong>規劃前提：</strong>2026 年實際付給老公的 18,000／18,000／10,000 元，已含當月家用及幼兒園費。若幼兒園費其實另外支付，10～12 月還要再扣 15,900 元，年底現金將不足，須重新調整。</p>
+            </div>
+        </section>
+        <section id="summary"><h2>2027 年計畫總覽</h2><p class="subtitle" id="planIntro">生活費 1～3 月 7,000 元、4 月起 10,000 元；兩版旅費同額，女兒分期速度依出遊時間調整。</p>
+            <div class="metrics">
+                <div class="metric"><div class="tag">三筆借款清償</div><div class="value green" id="debtMonth">2027.07</div><div class="hint">共 86,900 元；家用及幼兒園費另計</div></div>
+                <div class="metric"><div class="tag">8 月儲蓄險扣款後現金</div><div class="value" id="augCash">30,497</div><div class="hint">已另扣教育費 10,750 元</div></div>
+                <div class="metric"><div class="tag">12 月底可用現金（已含旅費）</div><div class="value" id="decCash">30,583</div><div class="hint">已扣旅遊台幣實付、保費預留及儲蓄險；緊急金須從此處保留</div></div>
+                <div class="metric"><div class="tag" id="extraTitle">方案 A｜預計出遊月份</div><div class="value green" id="extraAmount">2027.12</div><div class="hint" id="extraHint">共同旅遊預算 40,000 元</div></div>
+            </div><div class="callout good" id="scenarioAdvice" aria-live="polite">已納入 1～3 月 7,000 元、4 月起 10,000 元生活費及 8 月 21,000 元儲蓄險；旅費與緊急金分開計算。</div>
+        </section>
+        <div class="scenario" id="panel-original" role="tabpanel" aria-labelledby="tab-original">
+            <section><div class="cols"><div class="card"><h3>方案 A｜年度安排</h3><div class="pair"><span>1～2 月</span><strong>先清償老公與妹妹</strong></div><div class="pair"><span>3～7 月</span><strong>女兒分期還清</strong></div><div class="pair"><span>1～3 月／4 月起</span><strong>個人生活費 7,000／10,000 元</strong></div><div class="pair"><span>8 月</span><strong>儲蓄險 21,000＋正音班 10,750</strong></div><div class="pair"><span>9 月起</span><strong>安親／英文與學費</strong></div><div class="pair highlight-row"><span>預計可出發月份</span><strong id="origSchedule">2027 年 12 月（目標）</strong></div><p class="note">A 方案以 2027 年內出遊為原則，年底出遊款已排進 12 月收支。若緊急預備金未達輸入目標，會顯示缺額，不會視為已達標。</p></div><div class="card"><h3>日本旅遊預算檢查</h3><div class="pair"><span>出遊前可用現金（12 月旅費扣款前）</span><strong id="origBeforeTrip">63,583 元</strong></div><div class="pair"><span>A、B 共用旅遊總預算</span><strong id="origBudget">40,000 元</strong></div><div class="pair"><span>可抵用的沖繩剩餘日幣</span><strong id="origTripYen">7,000 元</strong></div><div class="pair"><span>12 月旅費台幣實付</span><strong id="origTripCash">33,000 元</strong></div><div class="pair highlight-row"><span>12 月出遊後可用現金</span><strong id="origYearCash">30,583 元</strong></div><div class="pair"><span>A、B 共用緊急金目標</span><strong id="origEmergencyGoal">30,000 元</strong></div><div class="pair"><span>保留緊急金後可用餘額</span><strong id="origAfterEmergency">583 元</strong></div><div class="pair highlight-row"><span>預計出發月份</span><strong id="origDeparture">2027 年 12 月（目標）</strong></div><p class="note" id="origGoal">年底若旅費為 40,000 元，預計仍能保留緊急預備金 30,000 元，另剩 583 元。</p></div></div></section>
+        </div>
+        <div class="scenario" id="panel-march" role="tabpanel" aria-labelledby="tab-march" hidden>
+            <section><div class="cols"><div class="card"><h3>方案 B｜3 月出遊（共用相同預算）</h3><div class="pair"><span>旅行總額（預算）</span><strong id="marchTripTotal">40,000 元</strong></div><div class="pair"><span>其中使用剩餘日幣</span><strong id="marchYenUsed">7,000 元</strong></div><div class="pair"><span>3 月需要支付台幣</span><strong id="marchTripCash">33,000 元</strong></div><div class="pair highlight-row"><span>3 月底可用現金</span><strong id="marchCash">12,465 元</strong></div><p class="note">如果機票、住宿在 3 月薪水入帳前扣款，須另外核對 2 月底現金與其他帳單的實際到期日。</p></div><div class="card"><h3>8～9 月現金壓力檢查</h3><div class="pair"><span>女兒借款 50,000 元</span><strong>4～7、10～12 月分期</strong></div><div class="pair"><span>8 月底現金（含儲蓄險扣款）</span><strong id="marchAug">31,497 元</strong></div><div class="pair"><span>9 月底現金（含學費）</span><strong id="marchSep">30,815 元</strong></div><div class="pair"><span>10、11、12 月償還女兒</span><strong>10,000／10,000／14,000 元</strong></div><div class="pair highlight-row"><span>12 月底可用現金</span><strong id="marchDec">30,583 元</strong></div><div class="pair"><span>A、B 共用緊急金目標</span><strong id="marchEmergencyGoal">30,000 元</strong></div><p class="note" id="marchEmergency">現金不等於緊急預備金已存妥；先完成出遊與必要支出，再依共用目標累積。</p></div></div><div class="callout" id="marchAlert">3 月版須先與女兒協調分期。預設旅費 40,000 元時，3 月底現金僅 12,465 元，請先確認年終實領、3 月薪水入帳與訂票扣款日；低現金緩衝屬高風險，宜降低共用旅費。</div></section>
+        </div>
+        <section id="repay"><h2>家人借款｜每月還款進度</h2><p class="subtitle">老公與妹妹皆於 2027 年 2 月還清；女兒可分期。每月家用 10,000 元及 1～7 月幼兒園費 5,300 元另計，本表只列償還舊債。</p><div class="card"><div class="table-scroll"><table><thead><tr><th>月份</th><th>還老公</th><th>還妹妹</th><th>還女兒</th><th>本月額外還款</th><th>月底總欠款</th></tr></thead><tbody id="debtRows"></tbody></table></div><p class="note">老公舊債 25,900、妹妹 11,000、女兒 50,000；妹妹借款與沖繩保留日幣各自獨立，不互相抵銷。所有延後還款方案，請先取得家人同意。</p></div></section>
+        <section id="monthly"><h2>2027 年逐月花費</h2><p class="subtitle">支出用正額表示。1～3 月個人生活費每月 7,000 元，4～12 月每月 10,000 元。每月底累積現金＝上月底餘額＋收入－所有當月支出；已扣除保費專戶預留及該方案旅費台幣實付；月底餘額仍包含尚未分出的緊急預備金，兩筆錢不可相加。</p><div class="card"><h3>1～6 月</h3><div class="table-scroll"><table><thead id="head1"></thead><tbody id="body1"></tbody></table></div></div><div class="card"><h3>7～12 月</h3><div class="table-scroll"><table><thead id="head2"></thead><tbody id="body2"></tbody></table></div><p class="note">8 月「儲蓄險實扣」21,000 元是額外項目，與每月 5,323 元一般保費預留各算各的。1～7 月另列幼兒園費 5,300 元，8 月起結束；9 月教育費＝註冊 4,750＋書本 1,250＋安親英文月費 6,500＋學雜費 <strong id="schoolInline">5,000 元</strong>，合計 <strong id="educationInline">17,500 元</strong>；10～12 月月費各 6,500 元。</p></div><div class="card"><h3>已保留的一般保費專戶</h3><div class="pair"><span>每月轉入</span><strong>5,323 元</strong></div><div class="pair"><span>11 月實繳（由保費專戶扣）</span><strong>19,000 元</strong></div><div class="pair"><span>12 月實繳（由保費專戶扣）</span><strong>44,868 元</strong></div><div class="pair highlight-row"><span>年底專戶預估餘額</span><strong>8 元</strong></div><p class="note">12 次轉入共 63,876 元，預估年度保費 63,868 元。此專戶不包含 8 月 21,000 元儲蓄險；也不算進月底「可用現金」。</p></div></section>
+        <section id="education"><h2>女兒教育費與家庭帳單</h2><div class="cols"><div class="card"><h3>教育費：以下均為你的負擔</h3><div class="pair"><span>幼兒園費（1～7 月，7 月結束）</span><strong>每月 5,300 元</strong></div><div class="pair"><span>8 月正音班（21,500 平分）</span><strong>10,750 元</strong></div><div class="pair"><span>9 月英文／安親註冊費</span><strong>4,750 元</strong></div><div class="pair"><span>9 月書本費</span><strong>1,250 元</strong></div><div class="pair"><span>9 月起英文＋安親月費</span><strong>6,500 元／月</strong></div><div class="pair"><span>公立小學學雜費（9 月，你負擔）</span><strong id="schoolDisplay">5,000 元</strong></div><div class="pair highlight-row"><span>9 月教育費合計</span><strong id="schoolTotal">17,500 元</strong></div><p class="note">預設註冊費、書本在 2027 年各繳一次；如果按學期收取，請自行追加下學期款項。</p></div><div class="card"><h3>家庭帳單與保險</h3><div class="pair"><span>網路費</span><strong>每月預估 1,359 元</strong></div><div class="pair"><span>管理費</span><strong>每兩個月 3,500 元</strong></div><div class="pair"><span>水電瓦斯</span><strong>參照 2025 年同期</strong></div><div class="pair"><span>2027 一般保費</span><strong>63,868 元（暫估）</strong></div><div class="pair"><span>2027／08 儲蓄險</span><strong>21,000 元（額外實扣）</strong></div><p class="note">水電、瓦斯、網路與管理費均在每月應付老公的家用 10,000 元以外另外列帳。</p></div></div></section>
+        <section id="notes"><h2>夫妻討論前，請先確認</h2><div class="checks"><div class="check"><small>01｜付款時間</small><strong>薪水與年終入帳日</strong><small>月底有餘額，不代表月初就能先支付機票、保費或其他帳單。</small></div><div class="check"><small>02｜2027／08</small><strong>儲蓄險 21,000 元</strong><small>先假設只發生 2027 年 8 月一次；若每年續扣，2028 年需另規劃準備金。</small></div><div class="check"><small>03｜學費與還款</small><strong>學雜費及借款協調</strong><small>學校費用依上方輸入即時更新；老公與妹妹 2 月還清，女兒 A 方案 7 月、B 方案 12 月還清。</small></div></div><div class="callout"><strong>試算限制：</strong>以目前資料與 2025 年家庭支出截圖估算，2027 年每月應付老公的家用 10,000 元；幼兒園費 5,300 元只繳至 7 月，8 月起不再繳。薪水 47,000 元，2027 年 1～3 月個人生活費 7,000 元、4 月起 10,000 元。尚未納入 2028 年學期重複註冊費、儲蓄險續期、意外支出、新卡費、旅遊匯率差異及新的投資收益；A 方案以 2027 年底出遊為目標；若試算未達共用緊急預備金門檻，須調整旅遊預算或延後預備金達標，不能視為已存到。B 方案 3 月底現金較少，須先確認年終與旅行付款日期。</div><p class="note">家庭帳單估算的雙月管理費月份：2026／11；2027／01、03、05、07、09、11。2025 截圖的各原始費用欄加總與「本月合計」欄不完全一致，因此採個別費用欄及上述管理費節奏估算。共同起點為 2026 年底現金 2,569 元及欠老公 25,900 元，前提是 2026 年給老公總額已含幼兒園費。頁面為家庭協調用的情境模型，並非保證收入、帳單或出遊支出。</p></section>
+    </main>
+    <footer><div class="wrap"><strong>家庭財務與日本旅遊計畫｜雙方案比較｜2027 年 4 月起生活費 10,000</strong><p>單檔 HTML，可離線開啟。所有輸入只在當前網頁內計算，不使用外部程式庫、不傳送任何個人資料。</p></div></footer>
+    <script>
+        (function () {
+            "use strict";
+            const common = [
+                {m:1,bills:4859}, {m:2,bills:3617}, {m:3,bills:4859}, {m:4,bills:3836},
+                {m:5,bills:4859}, {m:6,bills:3298}, {m:7,bills:4859}, {m:8,bills:3551},
+                {m:9,bills:4859}, {m:10,bills:3618}, {m:11,bills:4859}, {m:12,bills:3286}
+            ];
+            // A/B: 1 月先還老公 7,000；2 月清償老公剩餘 18,900 與妹妹 11,000。
+            // A: 女兒 3～7 月分期清償（12k/12k/12k/10k/4k）。
+            // B: 女兒 4～7、10～12 月分期（3k/4k/4k/5k/10k/10k/14k），避開 8～9 月教育費高峰。
+            const repayments = {
+                original: {1:[7000,0,0],2:[18900,11000,0],3:[0,0,12000],4:[0,0,12000],5:[0,0,12000],6:[0,0,10000],7:[0,0,4000]},
+                march: {1:[7000,0,0],2:[18900,11000,0],4:[0,0,3000],5:[0,0,4000],6:[0,0,4000],7:[0,0,5000],10:[0,0,10000],11:[0,0,10000],12:[0,0,14000]}
+            };
+            const el = id => document.getElementById(id);
+            const fmt = n => Math.round(n).toLocaleString("zh-TW");
+            const dollars = n => `${fmt(n)} 元`;
+            const value = (id, maximum) => Math.min(maximum, Math.max(0, Number(el(id).value) || 0));
+            const td = n => `<td>${n === 0 ? "—" : fmt(n)}</td>`;
+            let active = "original";
+            function calculate(plan, inputs) {
+                let cash = 2569;
+                const debt = {husband:25900, sister:11000, daughter:50000};
+                const usedYen = Math.min(inputs.trip, inputs.yen);
+                const tripCash = inputs.trip - usedYen;
+                const rows = common.map(({m,bills}) => {
+                    const income = m === 2 ? 94000 : 47000;
+                    const home = 10000;
+                    const kindergarten = m <= 7 ? 5300 : 0;
+                    const life = m <= 3 ? 7000 : 10000;
+                    const reserve = 5323;
+                    const red = m === 2 ? 12000 : 0;
+                    const education = m === 8 ? 10750 : m === 9 ? 12500 + inputs.school : m >= 10 ? 6500 : 0;
+                    const savingsInsurance = m === 8 ? 21000 : 0;
+                    const [husband,sister,daughter] = repayments[plan][m] || [0,0,0];
+                    debt.husband -= husband;
+                    debt.sister -= sister;
+                    debt.daughter -= daughter;
+                    const repayment = husband + sister + daughter;
+                    // A: 2027/12 出遊；B: 2027/03 出遊。日幣抵用不重複當作現金收入。
+                    const travelCash = (plan === "original" && m === 12) || (plan === "march" && m === 3) ? tripCash : 0;
+                    const change = income - home - kindergarten - life - bills - reserve - red - education - savingsInsurance - repayment - travelCash;
+                    cash += change;
+                    return {m,income,home,kindergarten,life,bills,reserve,red,education,savingsInsurance,husband,sister,daughter,repayment,travelCash,change,cash,remaining:debt.husband+debt.sister+debt.daughter};
+                });
+                return {rows,usedYen,tripCash,remainingYen:inputs.yen-usedYen,yearEnd:cash,cleared:rows.find(r=>r.remaining===0)?.m || null};
+            }
+            function emergencyStatus(result, inputs) {
+                // 預備金只是年底現金的保留目標，已在現金內，不能再次當成支出。
+                const shortfall = Math.max(0, inputs.emergency - result.yearEnd);
+                const afterEmergency = result.yearEnd - inputs.emergency;
+                return {shortfall,afterEmergency,met:shortfall===0 && result.rows.every(r => r.cash >= 0)};
+            }
+            function tableMatrix(rows, headId, bodyId) {
+                el(headId).innerHTML = `<tr><th>項目</th>${rows.map(r=>`<th>${r.m} 月</th>`).join("")}</tr>`;
+                const lines = [
+                    ["月初可用現金",r=>r.cash-r.change], ["薪水＋年終",r=>r.income], ["每月應付老公的家用",r=>r.home],
+                    ["幼兒園費（至 7 月）",r=>r.kindergarten], ["個人生活費",r=>r.life], ["水電瓦斯／網路／管理費",r=>r.bills], ["一般保費預留",r=>r.reserve],
+                    ["家人舊債額外還款",r=>r.repayment], ["女兒教育費",r=>r.education], ["儲蓄險實扣（8 月）",r=>r.savingsInsurance],
+                    ["長輩紅包（2 月）",r=>r.red], ["日本旅費：台幣實付",r=>r.travelCash],
+                    ["本月現金增減",r=>r.change], ["月底可用現金",r=>r.cash], ["月底尚欠家人",r=>r.remaining]
+                ];
+                el(bodyId).innerHTML = lines.map(([name, getter]) => {
+                    const special = name === "月底可用現金" ? "total" : name.includes("儲蓄險") ? "focus" : "";
+                    return `<tr class="${special}"><td>${name}</td>${rows.map(r=>`<td${((name === "月底可用現金" && r.cash < 10000) || (name === "本月現金增減" && getter(r) < 0)) ? ' class="red"' : ''}>${name === "本月現金增減" ? (getter(r) >= 0 ? "+" : "−") + fmt(Math.abs(getter(r))) : getter(r) === 0 ? "—" : fmt(getter(r))}</td>`).join("")}</tr>`;
+                }).join("");
+            }
+            function showDebts(rows) {
+                let html = `<tr><td>2026 年底</td><td>—</td><td>—</td><td>—</td><td>—</td><td>86,900</td></tr>`;
+                rows.forEach(r => {
+                    html += `<tr${r.remaining === 0 && rows[r.m-2]?.remaining !== 0 ? ' class="total"' : ''}><td>${r.m} 月</td>${td(r.husband)}${td(r.sister)}${td(r.daughter)}${td(r.repayment)}<td>${fmt(r.remaining)}</td></tr>`;
+                });
+                el("debtRows").innerHTML = html;
+            }
+            function render() {
+                const input = {
+                    school:value("school",100000), yen:value("yen",10000),
+                    trip:value("trip",250000), emergency:value("emergency",200000)
+                };
+                const original = calculate("original",input);
+                const march = calculate("march",input);
+                const result = active === "original" ? original : march;
+                const originalEmergency = emergencyStatus(original,input);
+                const marchEmergency = emergencyStatus(march,input);
+                const departure = "2027 年 12 月（目標）";
+                const cashIssueOriginal = original.rows.some(r=>r.cash<0);
+                const statusA = cashIssueOriginal ? `安排旅費後部分月份現金為負，請先調整預算。` : originalEmergency.shortfall > 0 ? `出遊後緊急金尚差 ${dollars(originalEmergency.shortfall)}；須調整旅費或延後達標。` : `出遊後仍可保留緊急金 ${dollars(input.emergency)}。`;
+                el("switchOriginalDate").textContent = departure;
+                el("switchOriginalNote").textContent = `共用旅費 ${dollars(input.trip)}｜緊急金目標 ${dollars(input.emergency)}。${statusA}`;
+                const marchCashAtTrip = march.rows[2].cash;
+                el("switchMarchNote").textContent = `共用旅費 ${dollars(input.trip)}｜3 月底現金 ${dollars(marchCashAtTrip)}${marchCashAtTrip < 10000 ? "（周轉偏緊）" : ""}；女兒 12 月還清。`;
+                const rows = result.rows;
+                const august = rows[7].cash;
+                const september = rows[8].cash;
+                el("debtMonth").textContent = result.cleared ? `2027.${String(result.cleared).padStart(2,"0")}` : "未清償";
+                el("augCash").textContent = fmt(august);
+                el("decCash").textContent = fmt(result.yearEnd);
+                el("augCash").className = `value ${august < 10000 ? "red" : ""}`;
+                el("decCash").className = `value ${result.yearEnd < 10000 ? "red" : ""}`;
+                el("planIntro").textContent = active === "original" ? "1～3 月生活費 7,000、4 月起 10,000；2 月還清老公與妹妹、7 月還清女兒，12 月出遊；旅費與緊急金分開檢查。" : "1～3 月生活費 7,000、4 月起 10,000；2 月還清老公與妹妹、3 月先出遊，女兒分期至 12 月；兩方案共用旅費與緊急金目標。";
+                const freeBeforeTrip = original.yearEnd + original.tripCash;
+                const cap = freeBeforeTrip - input.emergency + input.yen;
+                el("affordableHint").textContent = freeBeforeTrip < input.emergency ? `以目前的支出與還款進度，即使不出遊，年底現金仍距緊急預備金目標差 ${dollars(input.emergency - freeBeforeTrip)}；需另調整已知支出或達標時間。` : `若希望 2027 年底還清三筆借款，且保留緊急金 ${dollars(input.emergency)}，目前共同旅費（含可用日幣）上限約 ${dollars(Math.max(0, cap))}。目前設定 ${dollars(input.trip)}；兩版都適用，但 B 版還須檢查 3 月旅行後周轉現金。`;
+                el("schoolDisplay").textContent = dollars(input.school);
+                el("schoolTotal").textContent = dollars(12500+input.school);
+                el("schoolInline").textContent = dollars(input.school);
+                el("educationInline").textContent = dollars(12500+input.school);
+                if (active === "original") {
+                    const beforeTrip = original.yearEnd + original.tripCash;
+                    el("extraTitle").textContent = "方案 A｜預計出遊月份";
+                    el("extraAmount").textContent = "2027.12";
+                    el("extraHint").textContent = `共用旅費 ${dollars(input.trip)}｜緊急金 ${dollars(input.emergency)}`;
+                    el("origSchedule").textContent = departure;
+                    el("origDeparture").textContent = departure;
+                    el("origBeforeTrip").textContent = dollars(beforeTrip);
+                    el("origYearCash").textContent = dollars(original.yearEnd);
+                    el("origTripYen").textContent = dollars(original.usedYen);
+                    el("origBudget").textContent = dollars(input.trip);
+                    el("origTripCash").textContent = dollars(original.tripCash);
+                    el("origEmergencyGoal").textContent = dollars(input.emergency);
+                    el("origAfterEmergency").textContent = dollars(originalEmergency.afterEmergency);
+                    el("origAfterEmergency").className = originalEmergency.afterEmergency < 0 ? "red" : "green";
+                    el("origGoal").textContent = statusA;
+                    el("scenarioAdvice").textContent = cashIssueOriginal ? `A 方案 2027 年 12 月旅費已納入，但出現月份現金不足，請先調整旅費、學費或已確認收入。` : originalEmergency.shortfall ? `A 方案預計 2027 年 12 月出遊；同額旅費已列入當月支出，年底現金 ${dollars(original.yearEnd)}，距共用緊急金目標 ${dollars(input.emergency)} 尚差 ${dollars(originalEmergency.shortfall)}，請先補足或調整目標。` : `A 方案 2027 年 12 月出遊，共用旅費 ${dollars(input.trip)} 已列入收支；年底現金 ${dollars(original.yearEnd)}，保留緊急金 ${dollars(input.emergency)} 後尚有 ${dollars(originalEmergency.afterEmergency)}。`;
+                    el("scenarioAdvice").className = cashIssueOriginal || originalEmergency.shortfall ? "callout" : "callout good";
+                } else {
+                    const cashIssue = rows.some(r=>r.cash<0);
+                    el("extraTitle").textContent = "方案 B｜3 月旅遊總預算";
+                    el("extraAmount").textContent = fmt(input.trip);
+                    el("extraHint").textContent = `共用緊急金 ${dollars(input.emergency)}｜台幣實付 ${dollars(result.tripCash)}`;
+                    el("marchTripTotal").textContent = dollars(input.trip);
+                    el("marchYenUsed").textContent = dollars(result.usedYen);
+                    el("marchTripCash").textContent = dollars(result.tripCash);
+                    el("marchCash").textContent = dollars(rows[2].cash);
+                    el("marchAug").textContent = dollars(august);
+                    el("marchSep").textContent = dollars(september);
+                    el("marchDec").textContent = dollars(result.yearEnd);
+                    el("marchEmergencyGoal").textContent = dollars(input.emergency);
+                    el("marchEmergency").textContent = marchEmergency.shortfall ? `年底現金 ${dollars(result.yearEnd)}，距共用緊急金目標 ${dollars(input.emergency)} 還差 ${dollars(marchEmergency.shortfall)}；預備金須從現金分撥，不能重複計算。` : `年底現金 ${dollars(result.yearEnd)}，保留共用緊急金 ${dollars(input.emergency)} 後尚有 ${dollars(marchEmergency.afterEmergency)}；仍須確認中間月份的周轉。`;
+                    el("marchAlert").textContent = cashIssue ? "此情境有月份出現負現金，不能照此執行。請先調低旅費、調整支出或取得已確認的額外收入，並與家人協調還款。" : rows[2].cash < 10000 ? `3 月出遊後僅剩 ${dollars(rows[2].cash)}，低於試算採用的 10,000 元周轉參考線；建議降低共用旅遊預算，並確認機票住宿是否在 3 月薪水入帳前付款。女兒分期至 12 月還清需事先協調。` : september < 10000 ? `9 月底僅剩 ${dollars(september)}，低於 10,000 元周轉參考線；需調整旅費或預留學費。女兒 12 月還清須先協調。` : `3 月底現金 ${dollars(rows[2].cash)}，9 月底現金 ${dollars(september)}，8 月儲蓄險已扣；女兒最後一筆 14,000 元於 12 月償還，須先協調。月底餘額不代表訂票時已有相同現金。`;
+                    el("scenarioAdvice").textContent = cashIssue ? "注意：有月份的可用現金為負，這組方案不能照此執行。" : rows[2].cash < 10000 ? `B 方案 3 月旅遊後現金僅 ${dollars(rows[2].cash)}，周轉偏緊；年底現金 ${dollars(result.yearEnd)}，緊急金尚差 ${dollars(marchEmergency.shortfall)}。請優先降低共同旅遊預算。` : marchEmergency.shortfall ? `B 方案年底現金 ${dollars(result.yearEnd)}，共用緊急金目標 ${dollars(input.emergency)} 還差 ${dollars(marchEmergency.shortfall)}。` : `B 方案年底現金 ${dollars(result.yearEnd)}，分出緊急金 ${dollars(input.emergency)} 後剩 ${dollars(marchEmergency.afterEmergency)}；仍須確認旅費提前付款及中間月份的周轉。`;
+                    el("scenarioAdvice").className = cashIssue || rows[2].cash < 10000 || september < 10000 || marchEmergency.shortfall ? "callout" : "callout good";
+                }
+                tableMatrix(rows.slice(0,6),"head1","body1");
+                tableMatrix(rows.slice(6),"head2","body2");
+                showDebts(rows);
+            }
+            function selectPlan(plan) {
+                active = plan;
+                document.querySelectorAll("[data-plan]").forEach(button => {
+                    const on = button.dataset.plan === plan;
+                    button.setAttribute("aria-selected",String(on));
+                    button.tabIndex = on ? 0 : -1;
+                });
+                el("panel-original").hidden = plan !== "original";
+                el("panel-march").hidden = plan !== "march";
+                render();
+            }
+            document.querySelectorAll("[data-plan]").forEach(button => {
+                button.addEventListener("click",() => selectPlan(button.dataset.plan));
+                button.addEventListener("keydown",event => {
+                    if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+                        event.preventDefault();
+                        const next = active === "original" ? "march" : "original";
+                        selectPlan(next);
+                        el(`tab-${next}`).focus();
+                    }
+                });
+            });
+            ["school","yen","trip","emergency"].forEach(id => el(id).addEventListener("input",render));
+            window.familyFinancePlan = {calculate,emergencyStatus};
+            render();
+        }());
+    </script>
+</body>
+</html>
