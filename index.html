@@ -166,14 +166,14 @@
             <div class="choice">
                 <button id="plan-A" class="plan" type="button" aria-pressed="true" data-plan="A">
                     <strong>A｜2027 年 12 月去</strong>
-                    <span>先還老公與妹妹；旅費分幾個月存。</span>
+                    <span>前期生活費 12,000；2027 年 3 月起 15,000。2 月清完家人欠款。</span>
                 </button>
                 <button id="plan-B" class="plan" type="button" aria-pressed="false" data-plan="B">
                     <strong>B｜2027 年 3 月去</strong>
-                    <span>2 月還清老公；妹妹改在 4 月還清，3 月照常出遊。</span>
+                    <span>前期生活費 12,000；2027 年 3 月起 15,000。3 月照常旅行且月底不為負。</span>
                 </button>
             </div>
-            <p class="note" id="plan-notice">為避免年底現金不足，2026 年 10 月由日常帳戶給老公 14,000 元、11 月 15,300 元、12 月 10,000 元；11 月幼兒園費另增加 1,300 元，當月應付幼兒園費共 6,600 元，未付差額併入欠老公金額。12 月另從保費專戶給老公 32,570 元代繳保險，因此當月老公共收到 42,570 元；這筆保費不算還舊債，也不重複扣日常帳戶。兩方案 2027 年 1 月實際給老公 25,000 元、2 月 39,500 元，利用年終補還後於 2 月還清老公舊債，3 月恢復正常付款；B 方案的妹妹欠款安排於 4 月償還，需先取得同意。女兒剩餘 30,000 元預計協商順延到 2028 年。</p>
+            <p class="note" id="plan-notice">為確保 A／B 兩方案每個月底日常帳戶都不為負，生活費改為分階段：2026 年 10 月～2027 年 2 月每月 12,000 元，2027 年 3 月起提高為 15,000 元。2026 年 10 月先清老公舊債與妹妹；女兒 50,000 元在 2027 年 2 月利用年終一次還清，家人欠款歸零。保費照原計畫提撥與支付；2027 年暫不提撥緊急預備金，60,000 元目標延到 2028 年慢慢建立。A 方案最低現金約 19,192 元；B 方案因 3 月旅行最低約 2,965 元，但全期不會出現負值。</p>
             <nav class="table-shortcuts" aria-label="跳到計畫內容">
                 <a href="#repayment">還款表</a><a href="#spending">每月花費表</a><a href="#steps">每個月照著做</a>
             </nav>
@@ -181,10 +181,10 @@
 
         <section>
             <h2>② 年底會剩多少？日本旅行要存多少？</h2>
-            <p class="lead">以下的「剩下」是日常帳戶的錢；保費與旅遊專戶另外放，不會算兩次。</p>
+            <p class="lead">日常帳戶、保費專戶、旅遊基金與緊急預備金分開計算；日常帳戶另外保留約 20,000 元現金。</p>
             <div class="summary" aria-live="polite">
-                <div class="stat"><span>2027 年 12 月底，日常帳戶剩</span><strong id="year-end">—</strong><small>旅費已支付；不含保費專戶</small></div>
-                <div class="stat"><span>留好緊急金之後，還可動用</span><strong id="free-money">—</strong><small id="reserve-help">緊急金預留在上述日常帳戶內</small></div>
+                <div class="stat"><span>2027 年 12 月底，日常帳戶剩</span><strong id="year-end">—</strong><small>另有緊急預備金專戶，不重複計算</small></div>
+                <div class="stat"><span>緊急預備金專戶</span><strong id="free-money">—</strong><small id="reserve-help">目標 60,000 元</small></div>
                 <div class="stat"><span>2027 年底還欠家人</span><strong id="debt-end">—</strong><small id="debt-help">借款不等於當月生活費</small></div>
             </div>
 
@@ -198,12 +198,12 @@
                 <p id="trip-timing" class="note"></p>
             </div>
             <details class="settings">
-                <summary>想改旅費、日幣、學雜費或緊急金？點這裡</summary>
+                <summary>想改旅費、日幣、學雜費或手邊現金安全線？點這裡</summary>
                 <div class="fields">
                     <label>日本旅行總預算（元）<small>A、B 都用同一筆預算</small><input id="trip" type="number" inputmode="numeric" min="0" max="250000" step="1000" value="45000"></label>
                     <label>剩餘日幣，換成台幣約多少（元）<small>只抵旅費，不是多一筆台幣收入</small><input id="yen" type="number" inputmode="numeric" min="0" max="10000" step="100" value="7000"></label>
                     <label>2027 年 9 月學雜費（元）<small>原計畫先估 5,000 元，待學校通知</small><input id="school" type="number" inputmode="numeric" min="0" max="100000" step="100" value="5000"></label>
-                    <label>2027 年底希望留的緊急金（元）<small>只從月底日常現金保留，不重複扣款</small><input id="emergency" type="number" inputmode="numeric" min="0" max="200000" step="1000" value="20000"></label>
+                    <label>手邊現金安全線（元）<small>日常帳戶希望至少保留；與 60,000 元預備金專戶分開</small><input id="cash-floor" type="number" inputmode="numeric" min="0" max="200000" step="1000" value="20000"></label>
                 </div>
             </details>
             <div id="warnings" class="note" aria-live="polite"></div>
@@ -212,7 +212,7 @@
         <section id="repayment">
             <h2>③ 給老公、妹妹、女兒的還款表</h2>
             <p class="lead">「實際給老公」是這個月真正付出去的錢；「月底還欠老公」會包含尚未支付、由老公代墊的款項。切換上方 A／B 方案，表格也會一起更新。</p>
-            <p class="note">1 月實付 25,000 元、2 月實付 39,500 元；把 2026 年延後的款項與 11 月新增的 1,300 元幼兒園費一起補還，2 月還清老公舊債。沒有預付下個月，3 月照常付 15,300 元。</p>
+            <p class="note">2026 年 10 月先用額外收入清掉老公 26,000 元舊債與妹妹 11,000 元；女兒 50,000 元保留到 2027 年 2 月利用年終一次還清，當月起家人欠款全部清零。給老公的款項自 11 月起只剩當月家用與幼兒園費，不再包含舊債。</p>
             <div class="table-scroll"><table class="money-table ledger-table" aria-label="2026 十月至 2027 十二月家人還款明細">
                 <thead><tr><th scope="col">月份</th><th scope="col">家用<br>應付</th><th scope="col">幼兒園費<br>應付</th><th scope="col">欠老公<br>本月變化</th><th scope="col">實際給老公<br>（含保費代繳）</th><th scope="col">月底還欠老公<br>（含未付代墊）</th><th scope="col">還妹妹</th><th scope="col">還女兒</th><th scope="col">月底還欠<br>家人合計</th></tr></thead>
                 <tbody id="repayment-rows"></tbody>
@@ -221,8 +221,8 @@
         </section>
         <section id="spending">
             <h2>④ 每個月的花費表</h2>
-            <p class="lead">每一欄是一個月。先看「本月實際付掉」與「月底日常帳戶」。目前已透過調整家人還款避免 2026 年底現金變成負數；手機可以左右滑。</p>
-            <p class="table-note">「本月生活費額度」＝本月刷卡額度＋交通月票＋其他現金；其中刷卡部分到下月才繳，所以不會整筆算進本月「實際付掉」。存保費、存旅遊是把錢移到另一個帳戶；已存好的專戶付款不會再從日常帳戶扣一次。</p>
+            <p class="lead">每一欄是一個月。2026 年 10 月～2027 年 2 月生活費額度為 12,000 元，2027 年 3 月起提高為 15,000 元；同時維持 2027 年 2 月清完家人欠款。保費、旅費與緊急預備金分開管理，且 A／B 兩方案月底日常現金都不會出現負值。手機可以左右滑。</p>
+            <p class="table-note">「本月生活費額度」＝本月刷卡額度＋交通月票＋其他現金；其中刷卡部分到下月才繳。保費、旅遊與緊急預備金提撥都是把錢移到各自專戶，不算重複消費。</p>
             <div class="table-block"><h3>2026 年｜10～12 月</h3><div class="table-scroll"><table class="money-table" id="spending-2026" aria-label="2026 年十月至十二月每月收支明細"></table></div></div>
             <div class="table-block"><h3>2027 年｜1～6 月</h3><div class="table-scroll"><table class="money-table" id="spending-2027-a" aria-label="2027 年一月至六月每月收支明細"></table></div></div>
             <div class="table-block"><h3>2027 年｜7～12 月</h3><div class="table-scroll"><table class="money-table" id="spending-2027-b" aria-label="2027 年七月至十二月每月收支明細"></table></div></div>
@@ -231,31 +231,52 @@
                 <ul class="simple-list">
                     <li>一般保費：2026 年 11 月繳 19,000 元、12 月繳 44,868 元；其中 12 月有 32,570 元交給老公代繳，其餘 12,298 元支付其他保費。2027 年每月存 5,323 元，由保費專戶付款。</li>
                     <li>2027 年 2 月：預估年終 47,000 元，另有長輩紅包 12,000 元。</li>
-                    <li>2027 年 8 月：儲蓄險 21,000 元、正音班 10,750 元。</li>
+                    <li>2027 年 8 月：儲蓄險 21,000 元改由保費專戶提前準備；4～7 月各提撥 4,000 元、8 月提撥 5,000 元，8 月再由保費專戶支付 21,000 元。正音班 10,750 元仍由日常帳戶支付。</li>
                     <li>2027 年 9 月：教育費預設 17,500 元；10～12 月英文＋安親每月 6,500 元。</li>
                 </ul>
-                <p class="note">緊急金是希望留下的錢，沒有當成新支出；2027 年 11 月起生活費提高為 15,000 元，其中刷卡額度 13,000 元、交通月票 1,200 元、其他現金 800 元。12 月新刷的卡費會在 2028 年 1 月付。10 月上月卡費為 14,000 元；期初現金 6,000 元已入帳。為補足原本 2,631 元的年底缺口，10、11 月已調整給老公的金額；11 月另新增幼兒園費 1,300 元，先列入欠老公款項，避免影響年底現金。2026 年 12 月底日常帳戶仍保留約 69 元，不需另外借款補周轉。</p>
+                <p class="note">生活費先採兩階段：2026 年 10 月～2027 年 2 月為 12,000 元（刷卡 10,000＋交通月票 1,200＋其他現金 800）；2027 年 3 月起為 15,000 元（刷卡 13,000＋交通月票 1,200＋其他現金 800）。一般保費照原計畫每月提撥 5,323 元；8 月儲蓄險 21,000 元也改由保費專戶提前準備，4～7 月各多提撥 4,000 元、8 月多提撥 5,000 元，並於 8 月從保費專戶支付。11 月 19,000 元與 12 月 44,868 元保費仍由保費專戶支付。2027 年暫不存緊急預備金；A／B 兩方案都不會出現月底負值。</p>
             </div>
         </section>
 
         <section id="steps">
             <h2>⑤ 每個月照著做</h2>
-            <p class="lead">每張卡片依序看付款／還款、刷卡額度、保費專戶、旅遊基金、月底日常現金；點開最下方可核對其他收支。專戶付款不會重複扣日常帳戶。</p>
+            <p class="lead">每張卡片依序看付款／還款、刷卡額度、保費專戶、旅遊基金、緊急預備金專戶、月底日常現金；點開最下方可核對其他收支。</p>
             <div class="card">
-                <div class="row"><span>2026／10～2027／02：每月生活費</span><strong>8,000 元</strong></div>
-                <p class="muted">信用卡最多刷 6,000 元（下月才繳）＋本月交通月票 1,200 元＋其他現金 800 元。10 月繳的上月卡費為 14,000 元，新刷卡額度從 11 月帳單開始反映。</p>
+                <div class="row"><span>2026／10～2027／02：每月生活費額度</span><strong>12,000 元</strong></div>
+                <p class="muted">信用卡最多刷 10,000 元＋交通月票 1,200 元＋其他現金 800 元。10 月仍支付上月既有卡費 14,000 元；11 月起依 10,000 元刷卡上限反映帳單。</p>
                 <div class="divider"></div>
-                <div class="row"><span>2027／03～10：每月生活費</span><strong>12,000 元</strong></div>
-                <p class="muted">信用卡最多刷 10,000 元（下月才繳）＋本月交通月票 1,200 元＋其他現金 800 元。2027／03 提高刷卡額度，所以 4 月開始繳 10,000 元卡費。</p>
+                <div class="row"><span>2027／03 起：每月生活費額度</span><strong>15,000 元</strong></div>
+                <p class="muted">信用卡最多刷 13,000 元＋交通月票 1,200 元＋其他現金 800 元。3 月提高額度後，13,000 元的新刷卡額度會從 4 月帳單開始反映。</p>
                 <div class="divider"></div>
-                <div class="row"><span>2027／11 起：每月生活費</span><strong>15,000 元</strong></div>
-                <p class="muted">信用卡最多刷 13,000 元（下月才繳）＋本月交通月票 1,200 元＋其他現金 800 元。11 月開始提高生活費，因此 12 月繳 13,000 元卡費；12 月新刷的 13,000 元則於 2028 年 1 月繳。</p>
+                <div class="row"><span>家人欠款</span><strong>2027／02 清零</strong></div>
+                <p class="muted">2026／10 先清老公舊債與妹妹；女兒 50,000 元留到 2027／02 利用年終一次還清。</p>
+                <div class="divider"></div>
+                <div class="row"><span>緊急預備金目標</span><strong>60,000 元</strong></div>
+                <p class="muted">2027 年先不提撥，2028 年再慢慢建立。生活費依上方階段額度執行；若實際沒有用滿，差額優先留在日常帳戶，等現金較穩後再轉入預備金。</p>
             </div>
             <nav class="years" aria-label="跳到年份"><a href="#year-2026">看 2026 年</a><a href="#year-2027">看 2027 年</a></nav>
             <h3 class="year-title" id="year-2026">2026 年｜10～12 月</h3>
             <div id="months-2026" class="months" aria-live="polite"></div>
             <h3 class="year-title" id="year-2027">2027 年｜1～12 月</h3>
             <div id="months-2027" class="months" aria-live="polite"></div>
+        </section>
+
+        <section id="outlook">
+            <h2>⑥ 未來展望</h2>
+            <p class="lead">先把現金流穩住，再逐步增加安全感與生活彈性。</p>
+            <div class="card">
+                <div class="row"><span>2027 年重點</span><strong>先清債、穩定生活</strong></div>
+                <p class="muted">2 月家人欠款清零；生活費逐步回到每月 15,000 元，日常帳戶盡量保留約 20,000 元。</p>
+                <div class="divider"></div>
+                <div class="row"><span>緊急預備金</span><strong>60,000 → 120,000 → 180,000～200,000 元</strong></div>
+                <p class="muted">60,000 元作為第一階段，2028 年起慢慢累積即可；長期再依收入與家庭支出逐步提高，不需要一次完成。</p>
+                <div class="divider"></div>
+                <div class="row"><span>每年旅行</span><strong>預算 50,000 元</strong></div>
+                <p class="muted">旅行費與緊急預備金分開管理，平時可平均每月準備約 4,167 元；若有年終或額外收入，可優先補足旅行基金與緊急預備金。</p>
+                <div class="divider"></div>
+                <div class="row"><span>未來提高生活費</span><strong>先維持 15,000 元</strong></div>
+                <p class="muted">等緊急預備金累積較穩、收入增加或固定支出下降後，再評估是否提高到每月 20,000 元。</p>
+            </div>
         </section>
 
     </main>
@@ -267,23 +288,45 @@
             const fmt = n => Math.round(n).toLocaleString("zh-TW");
             const money = n => `${fmt(n)} 元`;
             const commonBills = [4859, 3617, 4859, 3836, 4859, 3298, 4859, 3551, 4859, 3618, 4859, 3286];
-            // 女兒、妹妹的還款照原假設；老公還款按 2026 年實際多還的款項重新計算。
+            // 生活費分階段：2026/10～2027/02 為 12,000 元，2027/03 起為 15,000 元；先還款與保費，緊急預備金延到 2028 年。
+            const RESERVE_TARGET = 60000;
             const repayments = {
-                A: {2:[11000,0],5:[0,5000],6:[0,5000],7:[0,5000],10:[0,5000]},
-                B: {4:[11000,0],7:[0,5000],10:[0,5000],11:[0,5000],12:[0,5000]}
+                A: {2:[0,50000]},
+                B: {2:[0,50000]}
             };
             let active = "A";
-            const husbandPayments2026 = {10: 14000, 11: 15300, 12: 10000};
+            const husbandPayments2026 = {10: 41300, 11: 16600, 12: 15300};
+            const familyRepayments2026 = {
+                10: {sister: 11000, daughter: 0},
+                11: {sister: 0, daughter: 0},
+                12: {sister: 0, daughter: 0}
+            };
 
             function travelSchedule(plan, amount) {
                 if (plan === "B") {
                     const feb = Math.min(20000, amount);
                     return {2: feb, 3: amount - feb};
                 }
-                const june = Math.round(amount * 6500 / 43000);
-                const july = Math.round(amount * 6500 / 43000);
-                const oct = Math.round(amount * 13000 / 43000);
-                return {6: june, 7: july, 10: oct, 11: amount - june - july - oct};
+                const june = Math.min(6000, amount);
+                const afterJune = amount - june;
+                const july = Math.min(6000, afterJune);
+                const afterJuly = afterJune - july;
+                const oct = Math.min(13000, afterJuly);
+                return {6: june, 7: july, 10: oct, 11: afterJuly - oct};
+            }
+
+            function livingBudget(year, month) {
+                return year < 2027 || (year === 2027 && month <= 2) ? 12000 : 15000;
+            }
+
+            function reserveSchedule() {
+                // 2027 年先不提撥；60,000 元目標延到 2028 年建立。
+                return {};
+            }
+
+            function savingsInsuranceSchedule() {
+                // 2027 年 8 月儲蓄險 21,000 元提前放進保費專戶：4～7 月各 4,000，8 月 5,000。
+                return {4: 4000, 5: 4000, 6: 4000, 7: 4000, 8: 5000};
             }
 
             function readInput(id, maximum) {
@@ -291,26 +334,32 @@
                 return Number.isFinite(n) ? Math.round(Math.min(maximum, Math.max(0, n))) : 0;
             }
 
-            // 三個帳戶分開計算：日常帳戶、保費專戶、旅遊基金。
-            // 轉帳只影響所在帳戶；從專戶付款時不會再扣一次日常帳戶。
+            // 四個帳戶分開計算：日常帳戶、保費專戶、旅遊基金、緊急預備金。
+            // 轉帳只影響所在帳戶；專戶金額不重複計入日常現金。
             function build(plan, cfg) {
                 let daily = 6000;
                 let insurance = 0;
                 let travel = 0;
+                let reserve = 0;
                 const debt = {husband: 26000, sister: 11000, daughter: 50000};
                 const usedYen = Math.min(cfg.trip, cfg.yen);
                 const tripCash = cfg.trip - usedYen;
                 const schedule = travelSchedule(plan, tripCash);
+                const reservePlan = reserveSchedule();
+                const savingsInsurancePlan = savingsInsuranceSchedule();
                 const rows = [];
 
                 function add(p) {
                     const start = daily;
                     const insuranceStart = insurance;
                     const travelStart = travel;
+                    const reserveStart = reserve;
+                    const reserveDeposit = p.reserveDeposit || 0;
                     const paid = p.expenses.reduce((sum, item) => sum + item.amount, 0);
-                    daily = start + p.income - paid - p.insuranceDeposit - p.travelDeposit;
+                    daily = start + p.income - paid - p.insuranceDeposit - p.travelDeposit - reserveDeposit;
                     insurance = insuranceStart + p.insuranceDeposit - p.insurancePaid;
                     travel = travelStart + p.travelDeposit - p.travelPaid;
+                    reserve = reserveStart + reserveDeposit;
                     debt.husband += p.husbandDebtChange;
                     debt.sister -= p.sisterPaid;
                     debt.daughter -= p.daughterPaid;
@@ -321,8 +370,12 @@
                         ...p,
                         husbandInsuranceDue: p.husbandInsuranceDue || 0,
                         husbandInsurancePaid: p.husbandInsurancePaid || 0,
+                        regularInsuranceDeposit: p.regularInsuranceDeposit || p.insuranceDeposit || 0,
+                        savingsInsuranceDeposit: p.savingsInsuranceDeposit || 0,
+                        savingsInsurancePaid: p.savingsInsurancePaid || 0,
                         husbandTotalReceived: p.husbandPaid + (p.husbandInsurancePaid || 0),
-                        start, paid, daily, insuranceStart, insurance, travelStart, travel,
+                        start, paid, daily, insuranceStart, insurance, travelStart, travel, reserveStart, reserve, reserveDeposit,
+                        cashFloor: cfg.cashFloor, reserveTarget: RESERVE_TARGET,
                         debt: {...debt}, debtTotal: debt.husband + debt.sister + debt.daughter,
                         totalWithoutInsurance: daily + travel
                     });
@@ -330,22 +383,26 @@
 
                 for (let m = 10; m <= 12; m += 1) {
                     const husbandPaid = husbandPayments2026[m];
-                    const cardPaid = m === 10 ? 14000 : 6000;
+                    const sisterPaid = familyRepayments2026[m].sister;
+                    const daughterPaid = familyRepayments2026[m].daughter;
+                    const cardPaid = m === 10 ? 14000 : 10000;
                     const bills = m === 10 ? 3618 : m === 11 ? 4859 : 3286;
                     const insuranceDeposit = m === 10 ? 19000 : m === 11 ? 17141 : 27727;
                     const insurancePaid = m === 11 ? 19000 : m === 12 ? 44868 : 0;
                     const husbandInsuranceDue = m === 12 ? 32570 : 0;
                     const husbandInsurancePaid = m === 12 ? 32570 : 0;
                     add({
-                        year: 2026, month: m, income: 47000, cardNew: 6000, cardPaid, kindergartenDue: m === 11 ? 6600 : 5300,
+                        year: 2026, month: m, income: m === 10 ? 126000 : 47000, cardNew: livingBudget(2026, m) - 2000, cardPaid, kindergartenDue: m === 11 ? 6600 : 5300,
                         husbandPaid,
                         husbandInsuranceDue,
                         husbandInsurancePaid,
                         husbandDebtChange: 10000 + (m === 11 ? 6600 : 5300) + husbandInsuranceDue - husbandPaid - husbandInsurancePaid,
-                        sisterPaid: 0, daughterPaid: 0, insuranceDeposit, insurancePaid,
+                        sisterPaid, daughterPaid, insuranceDeposit, insurancePaid,
                         travelDeposit: 0, travelPaid: 0,
                         expenses: [
                             {key: "husband", label: "實際給老公（含家用及還款）", amount: husbandPaid},
+                            ...(sisterPaid ? [{key: "sister", label: "還妹妹", amount: sisterPaid}] : []),
+                            ...(daughterPaid ? [{key: "daughter", label: "還女兒", amount: daughterPaid}] : []),
                             {key: "card", label: "繳上月信用卡帳單", amount: cardPaid},
                             {key: "transit", label: "交通月票", amount: 1200},
                             {key: "cash", label: "其他現金花費", amount: 800},
@@ -355,25 +412,28 @@
                     });
                 }
 
+                let previousCardNew = livingBudget(2026, 12) - 2000;
                 for (let m = 1; m <= 12; m += 1) {
                     const [sisterPaid, daughterPaid] = repayments[plan][m] || [0,0];
-                    // 1 月實付 25,000 元；2 月以年終補還 2026 年延後款與 11 月新增幼兒園費，實付 39,500 元並還清老公舊債；不跨月預付。
-                    let husbandDebtPaid = 0;
-                    if (m === 1) husbandDebtPaid = Math.min(9700, debt.husband);
-                    if (m === 2) husbandDebtPaid = debt.husband;
+                    // 老公舊債已在 2026 年 10 月清掉；2027 年只支付當月家用與幼兒園費。
+                    const husbandDebtPaid = 0;
                     const kindergarten = m <= 7 ? 5300 : 0;
-                    const husbandPaid = 10000 + kindergarten + husbandDebtPaid;
+                    const husbandPaid = 10000 + kindergarten;
                     const education = m === 8 ? 10750 : m === 9 ? 12500 + cfg.school : m >= 10 ? 6500 : 0;
-                    const savingsInsurance = m === 8 ? 21000 : 0;
+                    const savingsInsuranceDeposit = savingsInsurancePlan[m] || 0;
                     const redEnvelope = m === 2 ? 12000 : 0;
                     const income = m === 2 ? 94000 : 47000;
-                    const cardPaid = m <= 3 ? 6000 : m === 12 ? 13000 : 10000;
-                    const cardNew = m <= 2 ? 6000 : m >= 11 ? 13000 : 10000;
+                    const cardPaid = previousCardNew;
+                    const cardNew = livingBudget(2027, m) - 2000;
                     const bills = commonBills[m - 1];
                     const travelDeposit = schedule[m] || 0;
                     const travelPaid = (plan === "A" && m === 12) || (plan === "B" && m === 3) ? tripCash : 0;
-                    const insuranceDeposit = 5323;
-                    const insurancePaid = m === 11 ? 19000 : m === 12 ? 44868 : 0;
+                    const regularInsuranceDeposit = 5323;
+                    const insuranceDeposit = regularInsuranceDeposit + savingsInsuranceDeposit;
+                    const savingsInsurancePaid = m === 8 ? 21000 : 0;
+                    const regularInsurancePaid = m === 11 ? 19000 : m === 12 ? 44868 : 0;
+                    const insurancePaid = regularInsurancePaid + savingsInsurancePaid;
+                    const reserveDeposit = reservePlan[m] || 0;
                     const expenses = [
                         {key: "husband", label: "實際給老公（家用、幼兒園費及還款）", amount: husbandPaid},
                         {key: "card", label: "繳上月信用卡帳單", amount: cardPaid},
@@ -385,28 +445,32 @@
                     if (daughterPaid) expenses.push({key: "daughter", label: "還女兒", amount: daughterPaid});
                     if (redEnvelope) expenses.push({key: "red", label: "長輩紅包", amount: redEnvelope});
                     if (education) expenses.push({key: "education", label: m === 8 ? "正音班" : m === 9 ? "9 月教育費" : "英文＋安親月費", amount: education});
-                    if (savingsInsurance) expenses.push({key: "saving", label: "8 月儲蓄險（直接付款）", amount: savingsInsurance});
                     const tag = travelPaid ? "日本旅行" : m === 2 ? "年終入帳" : m === 8 ? "儲蓄險、正音班" : m === 9 ? "開學費" : m === 11 || m === 12 ? "年底保費" : "";
                     add({
                         year: 2027, month: m, income, cardNew, cardPaid, husbandPaid, kindergartenDue: kindergarten,
                         husbandInsuranceDue: 0, husbandInsurancePaid: 0,
                         husbandDebtChange: -husbandDebtPaid, sisterPaid, daughterPaid,
-                        insuranceDeposit, insurancePaid, travelDeposit, travelPaid, expenses, tag
+                        insuranceDeposit, insurancePaid, regularInsuranceDeposit, savingsInsuranceDeposit, savingsInsurancePaid, travelDeposit, travelPaid, reserveDeposit, expenses, tag
                     });
+                    previousCardNew = cardNew;
                 }
-                return {rows, usedYen, tripCash, schedule, last: rows[14]};
+                return {rows, usedYen, tripCash, schedule, reservePlan, last: rows[14]};
             }
 
             function statusMessage(r, cfg, plan) {
                 const problems = [];
                 const firstNegative = r.rows.find(x => x.daily < 0);
-                if (firstNegative) problems.push(`${firstNegative.year}／${String(firstNegative.month).padStart(2,"0")} 的安排會超過日常帳戶可用現金，請再調整付款或還款時程。`);
-                const firstTight = r.rows.filter(x => x.daily >= 0 && x.daily < 10000).sort((a, b) => a.daily - b.daily)[0];
-                if (firstTight) problems.push(`${firstTight.year}／${String(firstTight.month).padStart(2,"0")} 日常帳戶只剩 ${money(firstTight.daily)}，可用現金偏緊。`);
-                if (r.last.daily < cfg.emergency) problems.push(`年底距離想留下的緊急金還差 ${money(cfg.emergency - r.last.daily)}。`);
-                else if (r.last.daily - cfg.emergency < 5000) problems.push(`年底留下緊急金後，只多 ${money(r.last.daily - cfg.emergency)}，額外開銷的空間很小。`);
-                if (plan === "B" && r.tripCash) problems.push("B 方案 2 月還清老公，妹妹 11,000 元改為 4 月還清，必須取得妹妹同意；3 月旅費須等 3 月薪水入帳後才能補齊，機票或住宿若需提早付款，要另外安排。");
-                problems.push("兩案都有家人還款需要先協商；目前只是試算安排。");
+                if (firstNegative) problems.push(`${firstNegative.year}／${String(firstNegative.month).padStart(2,"0")} 的安排會超過日常帳戶可用現金，請再調整付款或提撥時程。`);
+                const belowFloor = r.rows.find(x => x.daily < cfg.cashFloor);
+                if (belowFloor) problems.push(`${belowFloor.year}／${String(belowFloor.month).padStart(2,"0")} 日常帳戶預估 ${money(belowFloor.daily)}，低於設定的 ${money(cfg.cashFloor)} 現金安全線。`);
+                const reserveGap = Math.max(0, RESERVE_TARGET - r.last.reserve);
+                if (reserveGap > 0) problems.push(`2027 年先不提撥緊急預備金；距離 ${money(RESERVE_TARGET)} 目標還差 ${money(reserveGap)}，預計從 2028 年開始慢慢建立。`);
+                if (plan === "B" && r.tripCash) {
+                    const march = r.rows.find(x => x.year === 2027 && x.month === 3);
+                    problems.push(`B 方案維持 3 月旅行，3 月底日常帳戶預估 ${money(march.daily)}；目前仍為正值，但低於 ${money(cfg.cashFloor)} 現金安全線，3～4 月建議避免額外大筆支出。`);
+                }
+                if (r.last.debtTotal === 0) problems.push("家人欠款已於 2027 年 2 月全部清零。");
+                problems.push("緊急預備金專戶只用於真正的突發狀況；2027 年先不提撥，保費、旅行與教育費仍由既定預算處理。生活費先以 12,000 元過渡，2027 年 3 月起提高到 15,000 元；實際花得較少會直接改善日常現金餘額。");
                 return problems.join(" ");
             }
 
@@ -420,7 +484,7 @@
                 const husbandDebtPaid = Math.max(0, -r.husbandDebtChange);
                 let husbandExplain = `含家用 10,000 元`;
                 if (r.year === 2026 && r.month === 12) {
-                    husbandExplain = `日常帳戶給 ${money(r.husbandPaid)}；另由保費專戶給 ${money(r.husbandInsurancePaid)} 代繳保險。幼兒園費 5,300 元暫未付，改列欠款；本月未另還舊債。`;
+                    husbandExplain = `日常帳戶給 ${money(r.husbandPaid)}，已含家用 10,000 元與幼兒園費 5,300 元；另由保費專戶給 ${money(r.husbandInsurancePaid)} 代繳保險。本月沒有新增或償還舊債。`;
                 } else {
                     if (r.kindergartenDue) husbandExplain += `、幼兒園費 ${fmt(r.kindergartenDue)} 元`;
                     husbandExplain += husbandDebtPaid ? `；另還老公舊債 ${money(husbandDebtPaid)}。` : `；本月沒有額外償還老公舊債。`;
@@ -444,14 +508,18 @@
                     travelNote = "依本方案的存錢時程，本月暫不提撥。";
                 }
                 const footerNote = r.year === 2026
-                    ? "已扣除保費轉入與本月支出；不含保費專戶及旅遊基金。"
-                    : "已扣除本月實付與轉入專戶；緊急金目標仍包含在這筆現金中。";
+                    ? "已扣除保費轉入與本月支出；不含各專戶餘額。"
+                    : "已扣除本月實付與所有專戶提撥；這筆是可留在手邊的日常現金。";
                 let accounting = item("月初日常帳戶", r.start) + item("本月收入", r.income);
                 accounting += r.expenses.map(e => item(e.label, e.amount, true)).join("");
                 accounting += item("轉入保費專戶", r.insuranceDeposit, true);
                 accounting += item("轉入旅遊基金", r.travelDeposit, true);
+                accounting += item("轉入緊急預備金專戶", r.reserveDeposit, true);
                 accounting += `<div class="row end"><span>＝月底日常帳戶</span><strong class="${r.daily < 0 ? "red" : ""}">${money(r.daily)}</strong></div>`;
                 let insurancePayment = r.insurancePaid ? `<div class="month-support">${item("本月實繳（由保費專戶支付）", r.insurancePaid)}` : "";
+                if (r.savingsInsurancePaid) {
+                    insurancePayment += item("其中儲蓄險", r.savingsInsurancePaid);
+                }
                 if (r.husbandInsurancePaid) {
                     insurancePayment += item("其中交給老公代繳保險", r.husbandInsurancePaid);
                     insurancePayment += item("其他保費", r.insurancePaid - r.husbandInsurancePaid);
@@ -476,6 +544,7 @@
                     </div>
                     <div class="month-section">
                         <div class="month-main"><span class="month-label">03｜保費專戶（本月轉入）</span><strong class="month-amount">${money(r.insuranceDeposit)}</strong></div>
+                        <p class="month-sub">一般保費提撥 ${money(r.regularInsuranceDeposit)}${r.savingsInsuranceDeposit ? `＋儲蓄險提撥 ${money(r.savingsInsuranceDeposit)}` : ""}。</p>
                         ${insurancePayment}
                         <p class="month-sub">專戶月底餘額 ${money(r.insurance)}，未計入下方現金。</p>
                     </div>
@@ -485,12 +554,16 @@
                         <p class="month-sub">基金月底餘額 ${money(r.travel)}。${travelNote}</p>
                     </div>
                     <div class="month-section">
-                        <div class="month-main"><span class="month-label">05｜月底日常可用現金</span><strong class="month-amount ${r.daily < 0 ? "negative" : r.daily < 10000 ? "low" : ""}">${money(r.daily)}</strong></div>
-                        <p class="month-sub">${footerNote}</p>
+                        <div class="month-main"><span class="month-label">05｜緊急預備金專戶（本月轉入）</span><strong class="month-amount">${money(r.reserveDeposit)}</strong></div>
+                        <p class="month-sub">專戶月底餘額 ${money(r.reserve)}／目標 ${money(r.reserveTarget)}。${r.reserveDeposit ? "本月已把這筆錢與日常帳戶分開。" : "本月暫不提撥。"}</p>
+                    </div>
+                    <div class="month-section">
+                        <div class="month-main"><span class="month-label">06｜月底日常可用現金</span><strong class="month-amount ${r.daily < 0 ? "negative" : r.daily < r.cashFloor ? "low" : ""}">${money(r.daily)}</strong></div>
+                        <p class="month-sub">${footerNote} 現金安全線 ${money(r.cashFloor)}。</p>
                     </div>
                     <details><summary>查看本月其他收支明細</summary>
                         <div class="breakdown">${accounting}</div>
-                        <p class="explain">保費及旅費由專戶支付，不會從日常帳戶重複扣款。</p>
+                        <p class="explain">保費、旅費與緊急預備金都分開管理，不會與日常帳戶重複計算。</p>
                         <p class="explain">月底尚欠：老公 ${money(r.debt.husband)}、妹妹 ${money(r.debt.sister)}、女兒 ${money(r.debt.daughter)}。</p>
                     </details>
                 </article>`;
@@ -505,7 +578,7 @@
                 const columns = rows.map(r => `<th scope="col">${r.month} 月</th>`).join("");
                 const dataRows = [
                     ["月初日常帳戶", r => r.start, "soft"],
-                    ["本月收入（含年終）", r => r.income, "soft"],
+                    ["本月收入（含額外收入／年終）", r => r.income, "soft"],
                     ["本月生活費額度（刷卡＋交通＋現金）", r => r.cardNew + expenseAmount(r, "transit") + expenseAmount(r, "cash"), "major"],
                     ["本月實際付掉（合計）", r => r.paid, "major"],
                     ["日常帳戶給老公（家用／還款）", r => expenseAmount(r, "husband"), "minor"],
@@ -517,12 +590,16 @@
                     ["家庭帳單", r => expenseAmount(r, "bills"), "minor"],
                     ["長輩紅包", r => expenseAmount(r, "red"), "minor"],
                     ["女兒教育費", r => expenseAmount(r, "education"), "minor"],
-                    ["儲蓄險（8 月）", r => expenseAmount(r, "saving"), "minor"],
+                    ["一般保費提撥", r => r.regularInsuranceDeposit, "minor"],
+                    ["儲蓄險提撥", r => r.savingsInsuranceDeposit, "minor"],
                     ["本月轉入保費專戶", r => r.insuranceDeposit, "soft"],
                     ["本月轉入旅遊基金", r => r.travelDeposit, "soft"],
+                    ["本月轉入緊急預備金", r => r.reserveDeposit, "soft"],
+                    ["月底緊急預備金專戶", r => r.reserve, "soft"],
                     ["月底日常帳戶剩餘", r => r.daily, "major"],
                     ["本月可刷卡上限（下月繳；參考）", r => r.cardNew, "soft"],
                     ["從保費專戶支付（不重扣）", r => r.insurancePaid, "soft"],
+                    ["其中儲蓄險（8 月）", r => r.savingsInsurancePaid, "minor"],
                     ["其中交給老公代繳保險", r => r.husbandInsurancePaid, "minor"],
                     ["從旅遊基金支付（不重扣）", r => r.travelPaid, "soft"],
                     ["月底保費專戶剩餘", r => r.insurance, "soft"],
@@ -543,11 +620,11 @@
                 for (const r of rows) {
                     if (r.year !== currentYear) {
                         currentYear = r.year;
-                        html += `<tr class="group"><td colspan="9">${currentYear} 年${currentYear === 2027 ? `｜方案 ${active}` : `｜10 月給老公 ${fmt(husbandPayments2026[10])} 元、11 月 ${fmt(husbandPayments2026[11])} 元、12 月合計 42,570 元（其中保費專戶 32,570 元）`}</td></tr>`;
+                        html += `<tr class="group"><td colspan="9">${currentYear} 年${currentYear === 2027 ? `｜方案 ${active}｜2 月清完所有家人欠款` : `｜10 月先清老公舊債與妹妹，並先還女兒一部分`}</td></tr>`;
                     }
                     let husbandChange = r.husbandDebtChange > 0 ? `新增欠款 ${fmt(r.husbandDebtChange)}` :
                         r.husbandDebtChange < 0 ? `還款 ${fmt(-r.husbandDebtChange)}` :
-                        r.year === 2026 && r.month < 12 ? "當月未還舊債" : "—";
+                        r.debt.husband === 0 ? "無舊債" : "—";
                     const show = n => n ? fmt(n) : "—";
                     html += `<tr>
                         <th scope="row">${r.year}／${String(r.month).padStart(2,"0")}</th>
@@ -564,30 +641,30 @@
             function render() {
                 const cfg = {
                     trip: readInput("trip", 250000), yen: readInput("yen", 10000),
-                    school: readInput("school", 100000), emergency: readInput("emergency", 200000)
+                    school: readInput("school", 100000), cashFloor: readInput("cash-floor", 200000)
                 };
                 const result = build(active, cfg);
                 const yearEnd = result.last.daily;
-                const free = yearEnd - cfg.emergency;
                 $("year-end").textContent = money(yearEnd);
-                $("year-end").className = result.rows.some(r => r.daily < 0) ? "red" : yearEnd < cfg.emergency ? "amber" : "green";
-                $("free-money").textContent = `${free < 0 ? "不足 " : ""}${money(Math.abs(free))}`;
-                $("free-money").className = free < 0 ? "red" : free < 5000 ? "amber" : "green";
-                $("reserve-help").textContent = `想留 ${money(cfg.emergency)}，已包含在左邊的日常帳戶現金中`;
+                $("year-end").className = result.rows.some(r => r.daily < cfg.cashFloor) ? "amber" : "green";
+                $("free-money").textContent = money(result.last.reserve);
+                $("free-money").className = result.last.reserve >= RESERVE_TARGET ? "green" : "amber";
+                $("reserve-help").textContent = `目標 ${money(RESERVE_TARGET)}；目前完成 ${Math.round(result.last.reserve / RESERVE_TARGET * 100)}%`;
                 $("debt-end").textContent = money(result.last.debtTotal);
-                $("debt-help").textContent = `原試算：女兒欠款 ${money(result.last.debt.daughter)} 延至 2028 年（需協商）`;
+                $("debt-help").textContent = result.last.debtTotal === 0 ? "已於 2027 年 2 月全部清零" : `目前仍欠 ${money(result.last.debtTotal)}`;
                 $("trip-total").textContent = money(cfg.trip);
                 $("yen-used").textContent = `− ${money(result.usedYen)}`;
                 $("trip-cash").textContent = money(result.tripCash);
                 const scheduled = result.rows.filter(r => r.travelDeposit > 0).map(r => `${r.month} 月存 ${money(r.travelDeposit)}`);
                 $("trip-schedule").textContent = `存錢安排：${scheduled.length ? scheduled.join("、") : "沒有需要再存的台幣"}。`;
                 $("trip-timing").textContent = active === "A" ?
-                    "A 方案：2027 年 11 月底先存好，12 月旅行時從旅遊基金付款。" :
-                    "B 方案：1 月實際給老公 25,000 元、2 月 39,500 元，利用年終補還 2026 年延後款與 11 月新增幼兒園費並還清老公舊債，另存旅費 20,000 元；3 月薪水入帳後補齊旅費，妹妹 11,000 元安排 4 月還清（需先同意）。提前訂房、買機票要另外確認付款日。";
+                    "A 方案：2026 年 10 月～2027 年 2 月生活費 12,000 元，3 月起提高到 15,000 元；2027 年 2 月清完家人欠款。4～8 月另外分段準備 21,000 元儲蓄險並放入保費專戶，8 月由專戶支付；2027 年不提撥緊急預備金，6、7、10、11 月分段存旅費，12 月旅行。全期月底日常現金都不會為負。" :
+                    `B 方案：2026 年 10 月～2027 年 2 月生活費 12,000 元，3 月起提高到 15,000 元；2027 年 2 月清完家人欠款並存旅費 ${money(result.schedule[2] || 0)}，3 月再存 ${money(result.schedule[3] || 0)} 並旅行。4～8 月再分段準備 21,000 元儲蓄險並放入保費專戶，8 月由專戶支付。全期月底日常現金維持正值，但 3 月旅行後會較緊，建議避免額外大筆支出。`;
                 const oct = result.rows[0];
                 const nov = result.rows[1];
                 const dec = result.rows[2];
-                $("repayment-note").textContent = `2026 年 10 月由日常帳戶給老公 ${money(oct.husbandPaid)}、11 月 ${money(nov.husbandPaid)}；12 月日常帳戶給 ${money(dec.husbandPaid)}，另由保費專戶給 ${money(dec.husbandInsurancePaid)} 代繳保險，當月實際收到合計 ${money(dec.husbandTotalReceived)}。保險代繳已全額付清，不新增欠老公款項；11 月幼兒園費增加 1,300 元（應付共 6,600 元），加上 10、12 月部分家用／幼兒園款項延後，2026 年底尚欠老公 ${money(dec.debt.husband)}。兩方案 2027 年 1 月實際給老公 25,000 元（償還舊債 9,700 元）、2 月實際給老公 39,500 元（償還舊債 24,200 元），利用年終把延後款補還並於 2 月還清老公舊債；3 月正常給 15,300 元。${active === "B" ? "妹妹 11,000 元延至 4 月（須先取得同意）。" : "妹妹也於 2 月還清。"}女兒未還的 30,000 元預計協商順延到 2028 年。`;
+                const daughterPayments = result.rows.filter(r => r.daughterPaid > 0).map(r => `${r.year}／${String(r.month).padStart(2,"0")} ${money(r.daughterPaid)}`);
+                $("repayment-note").textContent = `2026 年 10 月額外收入 79,000 元入帳後，日常帳戶給老公 ${money(oct.husbandPaid)}，其中包含 26,000 元舊債；同月還妹妹 ${money(oct.sisterPaid)}，老公與妹妹當月清零。女兒 50,000 元保留到 2027 年 2 月利用年終一次還清，家人欠款全部歸零。11 月給老公 ${money(nov.husbandPaid)}、12 月日常帳戶給 ${money(dec.husbandPaid)}，都只支付當月家用與幼兒園費；12 月另由保費專戶給老公 ${money(dec.husbandInsurancePaid)} 代繳保險。2027 年暫不提撥緊急預備金；年底日常帳戶預估 ${money(result.last.daily)}。`;
                 $("warnings").textContent = statusMessage(result, cfg, active);
                 $("warnings").className = `note ${result.rows.some(r => r.daily < 0) ? "negative" : ""}`;
                 $("months-2026").innerHTML = result.rows.filter(r => r.year === 2026).map(card).join("");
@@ -607,8 +684,8 @@
                     render();
                 });
             });
-            ["trip", "yen", "school", "emergency"].forEach(id => $(id).addEventListener("input", render));
-            window.familyFinancePlan = {build, travelSchedule};
+            ["trip", "yen", "school", "cash-floor"].forEach(id => $(id).addEventListener("input", render));
+            window.familyFinancePlan = {build, travelSchedule, reserveSchedule};
             render();
         }());
     </script>
